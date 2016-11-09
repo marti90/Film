@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:form>
+    
+        Titolo Film:<h:inputText id="titolo" 
+                    value="#{f.titolo}" 
+                    label="Film"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    /> 
+                    <br/>
+        Data Uscita:<h:inputText id="dataUscita"
+                    value="#{f.dataUscita}"
+                    label="Data"
+                    validatorMessage="La data deve essere in questo formato: xxxx"
+                    >
+                         <f:validateRegex pattern="\d{4}"/>
+                    </h:inputText>
+                    <br/>
+            Regista:<h:inputText id="regista" 
+                    value="#{f.regista}" 
+                    label="Regista"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    /> 
+                    <br/>
+             Genere:<h:selectOneMenu value="#{f.genere}"> 
+                        <f:selectItem itemValue="Drammatico" itemLabel="Drammatico"/>
+                        <f:selectItem itemValue="Horror" itemLabel="Horror"/>
+                        <f:selectItem itemValue="Commedia" itemLabel="Commedia"/>
+                        <f:selectItem itemValue="Fantasy" itemLabel="Fantasy"/>
+                    </h:selectOneMenu>
+                    <br/>
+        Codice Film:<h:inputText id="codiceFilm"
+                    value="#{f.codiceFilm}"
+                    label="CodFilm"
+                    validator="#{f.validazioneCodFiscale}"
+                    />
+                    
+    </h:form>
+</html>

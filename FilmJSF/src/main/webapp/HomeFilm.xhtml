@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Home Page Film</title>
+    </h:head>
+    
+    <h:body>
+    
+        <h:commandButton value="Aggiungi" action="formFilm"/>
+        
+        <h:dataTable value="#{c.getS.getTuttiFilm}" var="tempFilm" 
+                 styleClass="demo-table" headerClass="demo-table-header"
+                 rowClasses="demo-table-odd-row" >
+        <h:column>
+              <f:facet name="header">Titolo</f:facet>
+              #{tempFilm.titolo}
+        </h:column>
+        <h:column>
+              <f:facet name="header">Data Uscita</f:facet>
+              #{tempFilm.dataUscita}
+        </h:column>
+        <h:column>
+              <f:facet name="header">Regista</f:facet>
+              #{tempFilm.regista}
+        </h:column>
+        <h:column>
+              <f:facet name="header">Genere</f:facet>
+              #{tempFilm.genere}
+        </h:column>
+        <h:column>
+              <f:facet name="header">Codice Film</f:facet>
+              #{tempFilm.codiceFilm}
+        </h:column>
+    
+    </h:dataTable>
+    
+    
+    
+    </h:body>
+</html>
