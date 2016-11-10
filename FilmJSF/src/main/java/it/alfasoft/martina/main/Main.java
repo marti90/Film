@@ -7,13 +7,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Film f = new Film("Titanic",2000,"James Cameron","Drammatico","movie01");
+		Film f = new Film("Titanic","2000","James Cameron","Drammatico","movie01");
 		
 		FilmController fc = new FilmController();
 		
-		fc.
+		fc.getS().aggiungiFilm(f);
 		
+        Film f1 = new Film("StarWars","1971","Lucas","Fantasy","movie02");
 		
+		fc.getS().aggiungiFilm(f1);
 
 	}
 

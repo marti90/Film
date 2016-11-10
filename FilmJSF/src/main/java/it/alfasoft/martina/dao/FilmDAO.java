@@ -69,7 +69,7 @@ public class FilmDAO {
 			return f;
 		}
 			
-		//2.a- READ con id
+		//2.b- READ con Codice
 		public Film readFilmConCodice(String codiceFilm){
 			
 			Film f = null;
@@ -96,7 +96,35 @@ public class FilmDAO {
 			return f;
 		}
 		
-		//2.c READ tutti i film della tabella
+		//2.c- READ con id
+				public Film readFilmConId(long id){
+					
+					Film f = null;
+					
+					Session session = HibernateUtility.openSession();
+					Transaction tx = null;
+					
+					try{
+						tx = session.getTransaction();
+						tx.begin();
+						
+						f= session.get(Film.class, id);
+						
+						tx.commit();
+						
+					}catch(Exception ex){
+						tx.rollback();
+						
+					}finally{
+						session.close();
+						
+					}
+					
+					return f;
+				}
+		
+		//2.d READ tutti i film della tabella
+		@SuppressWarnings("unchecked")
 		public List<Film> readFilm(){
 			
 			List<Film> film = new ArrayList<Film>();

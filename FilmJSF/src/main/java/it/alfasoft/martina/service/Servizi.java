@@ -25,5 +25,17 @@ public class Servizi {
 		
 		return fDao.readFilm();
 	}
+	
+	public boolean modificaFilm(Film f){
+		
+		boolean res= fDao.updateFilm(f);
+		return res;
+	}
+	
+	public Film getFilmConId(long id){
+		Film f = null;
+		f= fDao.readFilmConId(id);
+		return f;
+	}
 
 }

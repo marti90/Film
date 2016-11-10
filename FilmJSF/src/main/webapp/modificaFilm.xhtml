@@ -7,7 +7,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
-       <title>Registrazione Film</title>
+       <title>Modifica Film</title>
        <h:outputStylesheet library="css" name="form.css"/>
        <style>
           .colori{
@@ -17,11 +17,9 @@
     </h:head>
     
     <h:body>
-    
     <h:form styleClass="demo-form2">
     
         Titolo Film:<h:inputText id="titolo" 
-                    name="titolo"
                     value="#{f.titolo}" 
                     label="Film"
                     required="true" 
@@ -32,7 +30,6 @@
                     <br/>
                     
         Data Uscita:<h:inputText id="dataUscita"
-                    name="dataUscita"
                     value="#{f.dataUscita}"
                     label="Data"
                     validatorMessage="La data deve essere in questo formato: xxxx"
@@ -40,21 +37,20 @@
                     >
                          <f:validateRegex pattern="\d{4}"/>
                     </h:inputText>
-                    <h:message for="dataUscita" styleClass="colori"/>
+                    <h:message for="titolo" styleClass="colori"/>
                     <br/>
                     
-            Regista:<h:inputText id="regista"
-                    name="regista" 
+            Regista:<h:inputText id="regista" 
                     value="#{f.regista}" 
                     label="Regista"
                     required="true" 
                     requiredMessage="Questo campo e' obbligatorio"
                     styleClass="demo-form"
                     /> 
-                    <h:message for="regista" styleClass="colori"/>
+                    <h:message for="titolo" styleClass="colori"/>
                     <br/>
                     
-             Genere:<h:selectOneMenu id="genere" name="genere" value="#{f.genere}" styleClass="demo-form"> 
+             Genere:<h:selectOneMenu value="#{f.genere}" styleClass="demo-form"> 
                         <f:selectItem itemValue="Drammatico" itemLabel="Drammatico"/>
                         <f:selectItem itemValue="Horror" itemLabel="Horror"/>
                         <f:selectItem itemValue="Commedia" itemLabel="Commedia"/>
@@ -63,15 +59,14 @@
                     <br/>
                     
         Codice Film:<h:inputText id="codiceFilm"
-                    name="codiceFilm"
                     value="#{f.codiceFilm}"
                     label="CodFilm"
-                    validator="#{f.validazioneCodFilm}"
                     styleClass="demo-form"
                     />
-                    <h:message for="codiceFilm" styleClass="colori"/>
+                    <h:message for="titolo" styleClass="colori"/>
+                    <h:inputHidden value="#{f.id_film}"/>
                     
-        <h:commandButton value="Registra" action="#{c.registraFilm(f)}" styleClass="demo-button"/>
+        <h:commandButton value="Modifica" action="#{c.aggiornaFilm(f)}"/>
                     
     </h:form>
     </h:body>

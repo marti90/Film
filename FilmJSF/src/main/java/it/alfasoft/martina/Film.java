@@ -26,7 +26,7 @@ public class Film implements Serializable{
 	private long id_film;
 	
 	private String titolo;
-	private int dataUscita;
+	private String dataUscita;
 	private String regista;
 	private String genere;
 	private String codiceFilm;
@@ -35,7 +35,7 @@ public class Film implements Serializable{
 		
 	}
 
-	public Film(String titolo, int dataUscita, String regista, String genere, String codiceFilm) {
+	public Film(String titolo, String dataUscita, String regista, String genere, String codiceFilm) {
 		this.titolo = titolo;
 		this.dataUscita = dataUscita;
 		this.regista = regista;
@@ -51,11 +51,11 @@ public class Film implements Serializable{
 		this.titolo = titolo;
 	}
 
-	public int getDataUscita() {
+	public String getDataUscita() {
 		return dataUscita;
 	}
 
-	public void setDataUscita(int dataUscita) {
+	public void setDataUscita(String dataUscita) {
 		this.dataUscita = dataUscita;
 	}
 
@@ -95,7 +95,7 @@ public class Film implements Serializable{
 		this.id_film = id_film;
 	}
 	
-	public void validazioneCodFiscale(FacesContext context, 
+	public void validazioneCodFilm(FacesContext context, 
             UIComponent component,
             Object value) throws ValidatorException{
 
@@ -103,7 +103,7 @@ public class Film implements Serializable{
                       return;
                       }
                       String dato=value.toString();
-                      if(dato.startsWith("movie")){
+                      if(!dato.startsWith("movie")){
                                  FacesMessage msg= new FacesMessage("Il Codice Film è SBAGLIATO!");
                                  throw new ValidatorException(msg);
                                  }

@@ -5,18 +5,27 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-
+    
+    <f:metadata>
+        <f:event listener="#{c.caricaFilm()}" type="preRenderView"/>
+    </f:metadata>
+    
     <h:head>
         <title>Home Page Film</title>
+        <h:outputStylesheet library="css" name="tabelle.css"/>
     </h:head>
     
     <h:body>
     
-        <h:commandButton value="Aggiungi" action="formFilm"/>
+        <h:form>
         
-        <h:dataTable value="#{c.getS.getTuttiFilm}" var="tempFilm" 
+        <h:commandButton value="Aggiungi un Film" action="formFilm"/>
+        <br/>
+        <br/>
+    
+        <h:dataTable value="#{c.listaFilm}" var="tempFilm" 
                  styleClass="demo-table" headerClass="demo-table-header"
-                 rowClasses="demo-table-odd-row" >
+                 rowClasses="demo-table-odd-row,demo-table-even-row" >
         <h:column>
               <f:facet name="header">Titolo</f:facet>
               #{tempFilm.titolo}
@@ -37,9 +46,23 @@
               <f:facet name="header">Codice Film</f:facet>
               #{tempFilm.codiceFilm}
         </h:column>
+        <h:column>
+              <f:facet name="header">Action</f:facet>
+              
+              <h:commandLink value="Delete"
+                             onclick="if(!confirm('sei sicuro che vuoi cancellare?'))return false"
+                             action="#{c.cancellaFilm(tempFilm.id_film)}"
+                             />
+                             <br/>
+              <h:commandLink value="Edit"
+                             onclick="if(!confirm('sei sicuro che vuoi modificare?'))return false"
+                             action="#{c.modificaFilm(tempFilm.id_film)}"
+                             />
+             
+        </h:column>
     
     </h:dataTable>
-    
+    </h:form>
     
     
     </h:body>
