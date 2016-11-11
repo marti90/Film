@@ -1,5 +1,6 @@
 package it.alfasoft.martina.dao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,14 @@ import org.hibernate.Transaction;
 import it.alfasoft.martina.Film;
 import it.alfasoft.martina.utility.HibernateUtility;
 
-public class FilmDAO {
+public class FilmDAO implements Serializable{
 	
-	//1- CREATE
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+		//1- CREATE
 		public boolean createFilm(Film f){
 				
 			boolean res = false;

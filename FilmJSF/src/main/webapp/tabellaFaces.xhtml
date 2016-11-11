@@ -74,7 +74,7 @@
 <!--            <p:menuitem actionListener="#{buttonView.buttonAction}" id="iconOnly" icon="fa fa-trash"/> -->
        </p:column>
        <p:column style="width:32px">
-          <p:commandLink action="#{dtEditView.delete(f)}" onclick="return confirm('Sei sicuro di voler cancellare?')" id="iconOnly" update="form">
+          <p:commandLink action="#{dtEditView.delete(f)}" onclick="if(!confirm('sei sicuro che vuoi cancellare?'))return false" id="iconOnly" update="form">
              <i class="ui-icon ui-icon-trash"/>
           </p:commandLink>
        </p:column>
