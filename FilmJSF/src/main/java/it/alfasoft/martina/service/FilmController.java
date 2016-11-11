@@ -7,12 +7,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-@ManagedBean(name="c",eager=true)
+@ManagedBean(name="filmController",eager=true)
 @SessionScoped
 public class FilmController implements Serializable{
 
@@ -25,9 +26,15 @@ public class FilmController implements Serializable{
 	private List<Film> listaFilm;
 	
 	
+	
 	public FilmController(){
-		s= new Servizi();
 		
+		
+	}
+	
+	@PostConstruct
+	public void init(){
+		s= new Servizi();
 	}
 
 	public Servizi getS() {
@@ -83,5 +90,7 @@ public class FilmController implements Serializable{
 		setListaFilm(s.getTuttiFilm());
 		
 	}
+	
+	
 
 }
