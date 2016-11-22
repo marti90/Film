@@ -13,7 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@ManagedBean(name="fil", eager=true)
+@ManagedBean(name="f", eager=true)
 @SessionScoped
 @Entity
 public class Film implements Serializable{
